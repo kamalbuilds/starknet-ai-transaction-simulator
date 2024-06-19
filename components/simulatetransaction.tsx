@@ -5,11 +5,9 @@ import { getContractInfo, startSimulateTransaction } from "@/utils/apiMethod";
 import { SimulateTransactionArgs } from "@/utils/nethermindRPCMethod";
 import { ClassDetailType, ContractDetailType } from "@/utils/voyagerAPIMethod";
 import { Loader2 } from "lucide-react";
-import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { AccountInvocationItem, TransactionType } from "starknet";
-import logo from "@/public/starknetai.png";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
@@ -161,7 +159,7 @@ export default function SimulateTransaction() {
 
           <CardContent className="space-y-5">
             <div className="space-y-2">
-              <div>Contract Address</div>
+              <div>Starknet Contract Address</div>
               <Input
                 placeholder="e.g: 0x1e173653be175b46cf33a41467e8abe181cb913586aa8f860e60bff9b3b9a3c"
                 value={contractAddress}
@@ -233,11 +231,6 @@ export default function SimulateTransaction() {
             )}
           </CardContent>
         </Card>
-        <Image
-          src={logo}
-          alt="logo"
-          className=" size-40 -rotate-[30deg]  -z-10"
-        />
       </div>
 
       <Card className="w-full rounded-lg p-2 bg-indigo-500/5 mt-12 backdrop-blur-3xl ">
@@ -252,7 +245,7 @@ export default function SimulateTransaction() {
             <div className="flex items-center space-x-2">
               <Switch
                 id="use_pending_block"
-                onCheckedChange={(checked) => {
+                onCheckedChange={(checked: any) => {
                   setUsePendingBlock(checked);
                 }}
               />
